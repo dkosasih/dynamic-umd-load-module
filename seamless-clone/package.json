@@ -26,8 +26,8 @@
     "workspace-schematic": "nx workspace-schematic",
     "dep-graph": "nx dep-graph",
     "help": "nx help",
-    "build:lib:core": "ng build core --configuration production --configuration=production && npm pack ./dist/libs/core",
-    "build:lib:public": "ng build public --configuration production --configuration=production",
+    "build:lib:core": "ng build core --configuration production  && npm pack ./dist/libs/core",
+    "build:lib:public": "ng build public --configuration=production",
     "copy-to-consumer:public-elem": "cp ./dist/apps/public-element/public-element.js ../public-consumer-app/src/assets/public-element.js && cp ./dist/apps/public-element/styles.css ../public-consumer-app/src/assets/styles.css"
   },
   "private": true,
