@@ -9,7 +9,7 @@ const routes: Routes = [
   { path: '**', redirectTo: '/404' },
 ];
 
-export const routerForChild: ModuleWithProviders = RouterModule.forRoot(routes);
+export const routerForChild: ModuleWithProviders = RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' });
 @NgModule({
   imports: [routerForChild],
   exports: [RouterModule],
