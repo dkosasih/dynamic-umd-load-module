@@ -42,6 +42,109 @@
           }
         }
       }
+    },
+    "prospect-app": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        },
+        "@schematics/angular:application": {
+          "strict": true
+        }
+      },
+      "root": "projects/prospect-app",
+      "sourceRoot": "projects/prospect-app/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/prospect-app",
+            "index": "projects/prospect-app/src/index.html",
+            "main": "projects/prospect-app/src/main.ts",
+            "polyfills": "projects/prospect-app/src/polyfills.ts",
+            "tsConfig": "projects/prospect-app/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "projects/prospect-app/src/favicon.ico",
+              "projects/prospect-app/src/assets"
+            ],
+            "styles": [
+              "projects/prospect-app/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "projects/prospect-app/src/environments/environment.ts",
+                  "with": "projects/prospect-app/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "prospect-app:build:production"
+            },
+            "development": {
+              "browserTarget": "prospect-app:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "prospect-app:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/prospect-app/src/test.ts",
+            "polyfills": "projects/prospect-app/src/polyfills.ts",
+            "tsConfig": "projects/prospect-app/tsconfig.spec.json",
+            "karmaConfig": "projects/prospect-app/karma.conf.js",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "projects/prospect-app/src/favicon.ico",
+              "projects/prospect-app/src/assets"
+            ],
+            "styles": [
+              "projects/prospect-app/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        }
+      }
     }},
   "cli": {
     "analytics": false
