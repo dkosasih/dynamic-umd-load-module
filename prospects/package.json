@@ -9,10 +9,12 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "build:lib": "ng build --project=prospect-lib --configuration production && npm run copy",
-    "copy": "cp -r ./dist/prospect-lib/bundles/* ../seamless-clone/apps/public-shell/src/assets"
+    "copy": "cp -r ./dist/prospect-lib/bundles/* ../seamless-clone/apps/public-shell/src/assets",
+    "run:all": "node node_modules/@angular-architects/module-federation/src/server/mf-dev-server.js"
   },
   "private": true,
   "dependencies": {
+    "@angular-architects/module-federation": "^12.4.0",
     "@angular/animations": "~12.1.4",
     "@angular/common": "~12.1.4",
     "@angular/compiler": "~12.1.4",
@@ -28,6 +30,7 @@
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~12.1.4",
+    "@angular-devkit/core": "^12.1.4",
     "@angular/cli": "~12.1.4",
     "@angular/compiler-cli": "~12.1.4",
     "@types/jasmine": "~3.6.0",
