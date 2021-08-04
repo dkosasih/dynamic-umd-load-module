@@ -1,6 +1,12 @@
-<p class="border-blue">
-  prospect-home works! <br/>
-  Seamless/core library: {{someService.getHello()}}
+<div class="border-blue">
+  <p>
+    prospect-home works! <br />
+    Seamless/core library: {{ someService.getHello() }}
+  </p>
+  <div>
+    <p>emitted: {{ someService.obs | async }}</p>
 
-
-</p>
+    <input type="text" [(ngModel)]="val" />
+    <button (click)="emit()">emit val</button>
+  </div>
+</div>

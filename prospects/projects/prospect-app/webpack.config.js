@@ -23,22 +23,23 @@ module.exports = {
   },
   plugins: [
     new ModuleFederationPlugin({
-        name: "prospects",
-        filename: "remoteEntry.js",  // 2-3K w/ Meta Data
-        exposes: {
-            './Module': './projects/prospect-app/src/app/app.module.ts',
-        },
+      name: "prospects",
+      library: { type: "var", name: "prospects" },
+      filename: "remoteEntry.js",  // 2-3K w/ Meta Data
+      exposes: {
+          './Module': './projects/prospect-app/src/app/app.module.ts',
+      },
 
-        shared: share({
-          "@angular/core": { singleton: true, strictVersion: true, requiredVersion: 'auto' },
-          "@angular/common": { singleton: true, strictVersion: true, requiredVersion: 'auto' },
-          "@angular/common/http": { singleton: true, strictVersion: true, requiredVersion: 'auto' },
-          "@angular/router": { singleton: true, strictVersion: true, requiredVersion: 'auto' },
-          "@seamless-clone/core": { singleton: true, strictVersion: true, requiredVersion: 'auto' },
+      shared: share({
+        "@angular/core": { singleton: true, strictVersion: true, requiredVersion: 'auto' },
+        "@angular/common": { singleton: true, strictVersion: true, requiredVersion: 'auto' },
+        "@angular/common/http": { singleton: true, strictVersion: true, requiredVersion: 'auto' },
+        "@angular/router": { singleton: true, strictVersion: true, requiredVersion: 'auto' },
+        // "@seamless-clone/core": { singleton: true, strictVersion: true, requiredVersion: '0.0.1' },
+        "@seamless-clone/core": { singleton: true, strictVersion: true, requiredVersion: '0.0.1'},
 
-          ...sharedMappings.getDescriptors()
-        })
-
+        ...sharedMappings.getDescriptors()
+      })
     }),
     sharedMappings.getPlugin()
   ],

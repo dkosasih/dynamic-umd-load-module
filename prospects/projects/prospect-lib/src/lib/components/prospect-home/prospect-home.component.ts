@@ -7,12 +7,18 @@ import { SomeServiceService } from '@seamless-clone/core';
   styleUrls: ['./prospect-home.component.scss']
 })
 export class ProspectHomeComponent implements OnInit {
+  val: string = '';
 
   constructor(
     public someService: SomeServiceService
   ) { }
 
   ngOnInit(): void {
+  }
+
+  emit() {
+    console.log('emitting', this.val);
+    this.someService.emitObservable(this.val);
   }
 
 }

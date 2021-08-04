@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, Inject, OnInit, ViewEncapsulation } from '@angular/core';
 import { SomeServiceService } from '@seamless-clone/core';
 
 @Component({
@@ -8,12 +8,17 @@ import { SomeServiceService } from '@seamless-clone/core';
   encapsulation: ViewEncapsulation.None
 })
 export class AppShellComponent implements OnInit {
+  val: string = '';
 
   constructor(
     public someService: SomeServiceService
   ) { }
 
   ngOnInit(): void {
+  }
+
+  emit() {
+    this.someService.emitObservable(this.val);
   }
 
 }

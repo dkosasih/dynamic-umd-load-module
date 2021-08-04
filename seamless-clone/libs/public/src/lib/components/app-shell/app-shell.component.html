@@ -1,4 +1,7 @@
-<p>{{someService.getHello()}}</p>
+<p>emitted: {{ someService.obs | async }}</p>
+
+<input type="text" [(ngModel)]="val" />
+<button (click)="emit()">emit val</button>
 
 <seamless-clone-test1-public></seamless-clone-test1-public>
 <div>&nbsp;</div>

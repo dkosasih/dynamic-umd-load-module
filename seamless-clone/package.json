@@ -26,12 +26,15 @@
     "workspace-schematic": "nx workspace-schematic",
     "dep-graph": "nx dep-graph",
     "help": "nx help",
-    "build:lib:core": "ng build core --configuration production  && npm pack ./dist/libs/core",
+    "build:lib:core": "ng build core --configuration production",
+    "buildpack:lib:core": "ng build core --configuration production  && npm pack ./dist/libs/core",
     "build:lib:public": "ng build public --configuration=production",
-    "copy-to-consumer:public-elem": "cp ./dist/apps/public-element/public-element.js ../public-consumer-app/src/assets/public-element.js && cp ./dist/apps/public-element/styles.css ../public-consumer-app/src/assets/styles.css"
+    "copy-to-consumer:public-elem": "cp ./dist/apps/public-element/public-element.js ../public-consumer-app/src/assets/public-element.js && cp ./dist/apps/public-element/styles.css ../public-consumer-app/src/assets/styles.css",
+    "run:all": "node node_modules/@angular-architects/module-federation/src/server/mf-dev-server.js"
   },
   "private": true,
   "dependencies": {
+    "@angular-architects/module-federation": "^12.4.0",
     "@angular/animations": "^12.1.4",
     "@angular/common": "^12.1.4",
     "@angular/compiler": "^12.1.4",
@@ -42,6 +45,7 @@
     "@angular/platform-browser-dynamic": "^12.1.4",
     "@angular/router": "^12.1.4",
     "@nrwl/angular": "12.6.3",
+    "@seamless-clone/core": "0.0.1",
     "document-register-element": "^1.7.2",
     "rxjs": "~6.5.4",
     "tslib": "^2.0.0",
