@@ -16,7 +16,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      // "@seamless-clone/core": ["libs/core/src/index.ts"],
+      "@seamless-clone/core": ["libs/core/src/index.ts"],
       "@seamless-clone/public": ["libs/public/src/index.ts"]
     }
   },
