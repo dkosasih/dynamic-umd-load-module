@@ -2,9 +2,9 @@ import { Injectable, OnDestroy } from '@angular/core';
 import { of, Subject } from 'rxjs';
 import { share, shareReplay } from 'rxjs/operators';
 
-@Injectable({
-  providedIn: 'root'
-})
+// @Injectable({
+//   providedIn: 'root'
+// })
 export class SomeServiceService {
   private id;
   private val: string = 'initial';
